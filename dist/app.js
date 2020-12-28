@@ -83,6 +83,20 @@ document.querySelector('form').addEventListener('submit', function(e) {
   document.getElementById('age').value = '';
   ELxp.options[0].selected = true;
 
+  // adding table line with candidate's properties
+  // creating the candidate row
+  const row = document.createElement('tr');
+  row.className = "text-center";
+  row.innerHTML = `
+  <td>${candidate.fullName}</td>
+  <td>${candidate.gender}</td>
+  <td>${candidate.age}</td>
+  <td>${candidate.experience}</td>
+  <td><span class="bg-red-400 text-xs p-0.5">Gents/Long</span></td>
+  `;
+  document.getElementById('candidatesTable').appendChild(row);
+
+
   e.preventDefault();
 });
 

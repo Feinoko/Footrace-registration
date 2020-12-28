@@ -7,7 +7,8 @@ Delete all candidates
 
 secondary/optional:
 ------------------
-assign a race category depending on gender & age (male/female long/short and kids' race) for fairness
+assign a race category depending on gender & age (male/female & long/short and kids' race) for fairness
+Example: tag can be Male/Long or Female/Long, or Kids' race. Long or short depends on candidate's indicated experience
 
 problems/bugs to fix:
 ------------------
@@ -25,11 +26,10 @@ Organise structure beforehand
 
 Current-task 
 ==========
-Add category column
+adding table line with candidate's properties
 ---
 description/details : 
-assign a race category depending on gender & age (male/female & long/short and kids' race) for fairness
-Example: tag can be Male/Long or Female/Long, or Kids' race. Long or short depends on candidate's indicated experience
+
 ========== 
 
 Stashed tasks (put on backburner to keep focused on current task)
