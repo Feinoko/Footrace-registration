@@ -25,9 +25,11 @@ Organise structure beforehand
 
 Current-task 
 ==========
-Change Gender input to select
+Add category column
 ---
 description/details : 
+assign a race category depending on gender & age (male/female & long/short and kids' race) for fairness
+Example: tag can be Male/Long or Female/Long, or Kids' race. Long or short depends on candidate's indicated experience
 ========== 
 
 Stashed tasks (put on backburner to keep focused on current task)
