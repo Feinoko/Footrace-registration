@@ -1,10 +1,11 @@
 // CLASSES
 
 class Candidate {
-  constructor(fullName, gender, age) {
+  constructor(fullName, gender, age, experience) {
     this.fullName = fullName;
     this.gender = gender;
     this.age = age;
+    this.experience = experience;
   }
 
   getFullInfo() {
@@ -38,11 +39,45 @@ class UI {
 
 }
 
-const jane = new Candidate('Jane Houston', 'Female', 25);
-
-console.log(jane);
-console.log(jane.getFullInfo());
-
 // EVENT HANDLERS
 
-// Adding a candidate
+const genderSelection = document.getElementById('gender');
+
+// Adding a candidate (submitting the form)
+document.querySelector('form').addEventListener('submit', function(e) {
+  const candidate = new Candidate();
+  
+  // getting the candidate's full name
+  candidate.fullName = document.getElementById('fullname').value;
+  console.log(candidate.fullName);
+  
+  // getting the candidate's gender
+  const ELgenderSelection = document.getElementById('gender');
+  // iterating thru each option to find the one that is selected, then assigning its value to candidate.gender
+  for (let i = 0; i < genderSelection.options.length; i++) {
+    if (genderSelection.options[i].selected) {
+      candidate.gender = genderSelection.options[i].value;
+    }
+  }
+  console.log(candidate.gender);
+  
+  // getting candidate's age
+  candidate.age = document.getElementById('age').value;
+  console.log(candidate.age);
+
+  // getting candidate's experience level
+  // getting experience input element
+  const ELxp = document.getElementById('experience');
+  for (let i = 0; i < ELxp.options.length; i++) {
+    if (ELxp.options[i].selected) {
+      candidate.experience = ELxp.options[i].text;
+    }
+  }
+  console.log(candidate.experience);
+  
+  console.log(candidate);
+
+  e.preventDefault();
+});
+
+

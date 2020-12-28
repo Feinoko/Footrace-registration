@@ -10,25 +10,25 @@
 </head>
 <body class="bg-blue-100">
   <div class="container mx-auto shadow-lg">
-    <h1 class=" text-shadow text-5xl my-10">Add candidate</h1>
-    <form>
-      <label class="font-semibold" for="title">Full Name</label>
-      <input type="text" name="title" class="text-input">
-      <label class="font-semibold" for="author">Gender</label>
-      <select name="author" class="text-input">
+    <h1 class=" text-shadow text-5xl my-10">Candidate Registration</h1>
+    <form action="#">
+      <label class="font-semibold" for="full-name">Full Name</label>
+      <input type="text" name="full-name" class="text-input" id="fullname">
+      <label class="font-semibold" for="gender">Gender</label>
+      <select name="gender" class="text-input" id="gender">
         <option value="blank">--</option>
         <option value="Female">Female</option>
         <option value="Male">Male</option>
       </select>
-      <label class="font-semibold" for="ISBN">Age</label>
-      <input type="text" name="ISBN" class="text-input">
+      <label class="font-semibold" for="age">Age</label>
+      <input type="text" name="age" class="text-input" id="age">
       <label class="font-semibold" for="experience">Experience Level</label>
-      <select name="experience" class="text-input">
+      <select name="experience" class="text-input" id="experience">
         <option value="blank">--</option>
         <option value="amateur">Amateur</option>
         <option value="pro">Professional</option>
       </select>
-      <input type="submit" value="submit" class="block w-full cursor-pointer h-8 border-solid border border-gray-300 bg-white rounded-md uppercase text-xs tracking-wide hover:border-gray-700 transition-all duration-300" > 
+      <input type="submit" value="submit" class="block w-full cursor-pointer h-8 border-solid border border-gray-300 bg-white rounded-md uppercase text-xs tracking-wide hover:border-gray-700 transition-all duration-300" >
     </form>
     <hr>
     <table class="bg-gray-200 mx-auto mt-8 w-full">
@@ -36,13 +36,15 @@
         <th>Name</th>
         <th>Gender</th>
         <th>Age</th>
+        <th>Experience</th>
         <th>Category</th>
       </tr>
       <tr class="text-center">
         <td>Susie</td>
         <td>Female</td>
         <td>36</td>
-        <td><span class="bg-red-400 text-xs">Gents/Long</span></td>
+        <td>Professional</td>
+        <td><span class="bg-red-400 text-xs p-0.5">Gents/Long</span></td>
       </tr>
     </table>
 
