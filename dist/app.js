@@ -54,9 +54,9 @@ document.querySelector('form').addEventListener('submit', function(e) {
   // getting the candidate's gender
   const ELgenderSelection = document.getElementById('gender');
   // iterating thru each option to find the one that is selected, then assigning its value to candidate.gender
-  for (let i = 0; i < genderSelection.options.length; i++) {
-    if (genderSelection.options[i].selected) {
-      candidate.gender = genderSelection.options[i].value;
+  for (let i = 0; i < ELgenderSelection.options.length; i++) {
+    if (ELgenderSelection.options[i].selected) {
+      candidate.gender = ELgenderSelection.options[i].value;
     }
   }
   console.log(candidate.gender);
@@ -76,6 +76,12 @@ document.querySelector('form').addEventListener('submit', function(e) {
   console.log(candidate.experience);
   
   console.log(candidate);
+
+  // clearing inputs
+  document.getElementById('fullname').value = '';
+  ELgenderSelection.options[0].selected = true;
+  document.getElementById('age').value = '';
+  ELxp.options[0].selected = true;
 
   e.preventDefault();
 });
