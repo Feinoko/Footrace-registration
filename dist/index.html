@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../src/tailwind.css"> <!-- this is the full tailwind with autoprefixer -- remove on distribution. -->
-  <link rel="stylesheet" href="./app.css"> <!-- purged css, keep only this file on distribution -->
+  <link rel="stylesheet" href="../src/tailwindFull.css"> <!-- this is the full tailwind with autoprefixer -- remove on distribution. -->
+  <link rel="stylesheet" href="./tailwind.css"> <!-- purged css, keep only this file on distribution -->
+  <link rel="stylesheet" href="./styles.css"> <!-- for CSS styles -->
   <title>Document</title>
 </head>
 <body class="bg-blue-100">
   <div class="container mx-auto shadow-lg">
-    <h1 class="text-5xl my-10">Add candidate</h1>
-    <form >
+    <h1 class=" text-shadow text-5xl my-10">Add candidate</h1>
+    <form>
       <label class="font-semibold" for="title">Full Name</label>
       <input type="text" name="title" class="text-input">
       <label class="font-semibold" for="author">Gender</label>
@@ -27,7 +28,7 @@
         <option value="amateur">Amateur</option>
         <option value="pro">Professional</option>
       </select>
-      <input type="submit" value="submit" class="block w-full cursor-pointer h-8 border-solid border border-gray-300 bg-white rounded-md uppercase text-xs tracking-wide" > 
+      <input type="submit" value="submit" class="block w-full cursor-pointer h-8 border-solid border border-gray-300 bg-white rounded-md uppercase text-xs tracking-wide hover:border-gray-700 transition-all duration-300" > 
     </form>
     <hr>
     <table class="bg-gray-200 mx-auto mt-8 w-full">

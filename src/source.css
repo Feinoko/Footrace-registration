@@ -1,8 +1,0 @@
-@tailwind base;
-@tailwind components;
-
-.text-input {
-  @apply block w-full border-solid border-gray-300 rounded border mb-5 h-8;
-}
-
-@tailwind utilities;
