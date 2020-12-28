@@ -10,8 +10,8 @@ class Candidate {
   getFullInfo() {
     let pronoun;
     let whatGender;
-    this.gender === 'female' || this.gender === 'Female' ? whatGender = 'female' : whatGender = 'male';
-    this.gender === 'female' || this.gender === 'Female' ? pronoun = 'she' : pronoun = 'he';
+    this.gender === 'Female' ? whatGender = 'female' : whatGender = 'male';
+    this.gender === 'Female' ? pronoun = 'she' : pronoun = 'he';
     console.log(`Candidate's name is ${this.fullName}, ${pronoun} is a ${whatGender}, and is ${this.age} years old`);
   }
 
@@ -33,7 +33,7 @@ class UI {
   }
 
   clearCandidates() {
-    
+
   }
 
 }
