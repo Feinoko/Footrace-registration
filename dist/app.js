@@ -45,3 +45,4 @@ console.log(jane.getFullInfo());
 
 // EVENT HANDLERS
 
+// Adding a candidate
