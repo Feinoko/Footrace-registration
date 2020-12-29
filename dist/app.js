@@ -55,6 +55,7 @@ class UI {
         const row = document.createElement('tr');
         row.className = "text-center";
         row.innerHTML = `
+        <td><i class="fas fa-window-close hover:text-red-700 cursor-pointer"></i></td>
         <td>${candidate.fullName}</td>
         <td>${candidate.gender}</td>
         <td>${candidate.age}</td>
@@ -113,6 +114,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
   const row = document.createElement('tr');
   row.className = "text-center";
   row.innerHTML = `
+  <td><i class="fas fa-window-close hover:text-red-700 cursor-pointer"></i></td>
   <td>${candidate.fullName}</td>
   <td>${candidate.gender}</td>
   <td>${candidate.age}</td>

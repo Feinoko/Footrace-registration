@@ -7,8 +7,9 @@ Delete all candidates
 
 secondary/optional:
 ------------------
-assign a race category depending on gender & age (male/female & long/short and kids' race) for fairness
+-assign a race category depending on gender & age (male/female & long/short and kids' race) for fairness
 Example: tag can be Male/Long or Female/Long, or Kids' race. Long or short depends on candidate's indicated experience
+-UI : small arrow to collapse form so that table is full screen
 
 problems/bugs to fix:
 ------------------

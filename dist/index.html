@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="../src/tailwindFull.css"> <!-- this is the full tailwind with autoprefixer -- remove on distribution. -->
   <link rel="stylesheet" href="./tailwind.css"> <!-- purged css, keep only this file on distribution -->
   <link rel="stylesheet" href="./styles.css"> <!-- for CSS styles -->
+  <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
   <title>Document</title>
 </head>
 <body class="bg-blue-100 runner">
@@ -34,6 +35,7 @@
     <hr>
     <table class="bg-gray-200 mx-auto mt-8 w-full" id="candidatesTable">
       <tr class="border-solid border-gray-600 border-b">
+        <th></th> <!-- empty col for remove candidate -->
         <th>Name</th>
         <th>Gender</th>
         <th>Age</th>
@@ -41,6 +43,7 @@
         <th>Category</th>
       </tr>
       <tr class="text-center">
+        <td><i class="fas fa-window-close hover:text-red-700 cursor-pointer"></i></td>
         <td>Susie</td>
         <td>Female</td>
         <td>36</td>
@@ -51,6 +54,7 @@
 
 
     <script src="./app.js"></script>
+    <script src="../node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
   </div>
 </body>
 </html>
