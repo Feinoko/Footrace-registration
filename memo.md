@@ -26,7 +26,7 @@ Organise structure beforehand
 
 Current-task 
 ==========
-adding table line with candidate's properties
+loading all existing candidates from local memory
 ---
 description/details : 
 

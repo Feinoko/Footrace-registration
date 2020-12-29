@@ -710,6 +710,7 @@ module.exports = {
     }),
     zIndex: {
       auto: 'auto',
+      m1: '-1',
       0: '0',
       10: '10',
       20: '20',

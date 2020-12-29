@@ -41,7 +41,7 @@ class UI {
 
 // EVENT HANDLERS
 
-const genderSelection = document.getElementById('gender');
+// loading all existing candidates from local memory
 
 // Adding a candidate (submitting the form)
 document.querySelector('form').addEventListener('submit', function(e) {
@@ -96,6 +96,12 @@ document.querySelector('form').addEventListener('submit', function(e) {
   `;
   document.getElementById('candidatesTable').appendChild(row);
 
+  // saving candidate data to local storage
+  let candidates;
+  localStorage.getItem('candidates') === null ? candidates = [] : candidates = JSON.parse(localStorage.getItem('candidates'));
+  // set the task item into storage
+  candidates.push(candidate);
+  localStorage.setItem('candidates', JSON.stringify(candidates));
 
   e.preventDefault();
 });
