@@ -30,9 +30,10 @@ Current-task
 Main : manually removing candidates
 ---
 Steps :
-#1: install font awesome
-#2: create delete column (shoud be 1st) with 'x' icon
-#3: add event on clicking delete : remove row & data from local storage
+ok #1: install font awesome
+ok #2: create delete column (shoud be 1st) with 'x' icon
+ok #3: add event on clicking delete and remove row
+#4: remove row data from local storage
 ---
 description/details : 
 
@@ -42,4 +43,6 @@ Stashed tasks (put on backburner to keep focused on current task)
 ==========
 -find cool animation when hovering 'x'
 -move functions bodies to UI class
+-add a clear table button, with alert to confirm
+-refactor/cleanup code
 ========== 

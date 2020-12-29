@@ -55,7 +55,7 @@ class UI {
         const row = document.createElement('tr');
         row.className = "text-center";
         row.innerHTML = `
-        <td><i class="fas fa-window-close hover:text-red-700 cursor-pointer"></i></td>
+        <td id="remove"><i class="fas fa-window-close hover:text-red-700 cursor-pointer"></i></td>
         <td>${candidate.fullName}</td>
         <td>${candidate.gender}</td>
         <td>${candidate.age}</td>
@@ -114,7 +114,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
   const row = document.createElement('tr');
   row.className = "text-center";
   row.innerHTML = `
-  <td><i class="fas fa-window-close hover:text-red-700 cursor-pointer"></i></td>
+  <td id="remove"><i class="fas fa-window-close hover:text-red-700 cursor-pointer"></i></td>
   <td>${candidate.fullName}</td>
   <td>${candidate.gender}</td>
   <td>${candidate.age}</td>
@@ -134,4 +134,21 @@ document.querySelector('form').addEventListener('submit', function(e) {
 });
 
 // manually removing candidates
+// get del element
+const delBtn = document.querySelector('.fa-window-close');
+document.body.addEventListener('click', function(e) {
 
+  // console.log(e.target); //d
+  // console.log(e.target.parentElement);
+
+  // trigger if clicking on the right element (the icon, which inclue the svg, whose parent is td with id=remove and path (the outer part of the icon), whose parent is svg)
+  if(e.target.parentElement.id === 'remove' || e.target.parentElement.tagName === 'svg' )  {
+    if(e.target.parentElement.id === 'remove') {
+      e.target.parentElement.parentElement.remove();
+    } else {
+      e.target.parentElement.parentElement.parentElement.remove();
+    }
+  }
+
+  e.preventDefault();
+})
