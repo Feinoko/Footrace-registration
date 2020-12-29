@@ -10,10 +10,6 @@
   background-position: right 75%;
 }
 
-.starting-block-img {
-  z-index: -10;
-}
-
 @media screen and (max-width: 890px) {
   .runner {
     background-size: 40%;

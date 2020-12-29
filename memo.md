@@ -26,7 +26,12 @@ Organise structure beforehand
 
 Current-task 
 ==========
-loading all existing candidates from local memory
+Main : manually removing candidates
+---
+Steps :
+#1: install font awesome
+#2: create delete column (shoud be 1st) with 'x' icon
+#3: add event on clicking delete : remove row & data from local storage
 ---
 description/details : 
 
@@ -34,5 +39,6 @@ description/details :
 
 Stashed tasks (put on backburner to keep focused on current task)
 ==========
-
+-find cool animation when hovering 'x'
+-move functions bodies to UI class
 ========== 

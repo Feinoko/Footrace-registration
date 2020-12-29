@@ -37,6 +37,10 @@ class UI {
 
   }
 
+  loadCandidates() {
+    
+  }
+
 }
 
 // EVENT HANDLERS
@@ -127,4 +131,5 @@ document.querySelector('form').addEventListener('submit', function(e) {
   e.preventDefault();
 });
 
+// manually removing candidates
 

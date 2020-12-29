@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-css": "postcss src/tailwindSource.css -o dist/tailwind.css"
+    "build-css": "postcss src/tailwindSource.css -o dist/tailwind.css",
+    "build-tailwind": "postcss src/tailwindSource.css -o src/tailwindFull.css"
   },
   "author": "",
   "license": "ISC",
