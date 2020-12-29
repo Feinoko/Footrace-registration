@@ -13,7 +13,7 @@ class Candidate {
     let whatGender;
     this.gender === 'Female' ? whatGender = 'female' : whatGender = 'male';
     this.gender === 'Female' ? pronoun = 'she' : pronoun = 'he';
-    console.log(`Candidate's name is ${this.fullName}, ${pronoun} is a ${whatGender}, and is ${this.age} years old`);
+    console.log(`Candidate's name is ${this.fullName}, ${pronoun} is a ${whatGender}, and is ${this.age} years old`); //d
   }
 
   getCategory() {
@@ -42,6 +42,27 @@ class UI {
 // EVENT HANDLERS
 
 // loading all existing candidates from local memory
+  window.onload = function() {
+    // assigning memorized candidates to local var
+    let candidates = JSON.parse(localStorage.getItem('candidates'));
+    // if memory is void, skip, otherwise create a table row for each candidate in memory
+    if (candidates !== null) {
+      candidates.forEach(function(candidate) {
+        const row = document.createElement('tr');
+        row.className = "text-center";
+        row.innerHTML = `
+        <td>${candidate.fullName}</td>
+        <td>${candidate.gender}</td>
+        <td>${candidate.age}</td>
+        <td>${candidate.experience}</td>
+        <td><span class="bg-red-400 text-xs p-0.5">Gents/Long</span></td>
+        `;
+        document.getElementById('candidatesTable').appendChild(row);
+      })
+    } else { //d
+      console.log('memory is void');
+    }
+  }
 
 // Adding a candidate (submitting the form)
 document.querySelector('form').addEventListener('submit', function(e) {
@@ -49,7 +70,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
   
   // getting the candidate's full name
   candidate.fullName = document.getElementById('fullname').value;
-  console.log(candidate.fullName);
+  console.log(candidate.fullName); //d
   
   // getting the candidate's gender
   const ELgenderSelection = document.getElementById('gender');
@@ -59,11 +80,11 @@ document.querySelector('form').addEventListener('submit', function(e) {
       candidate.gender = ELgenderSelection.options[i].value;
     }
   }
-  console.log(candidate.gender);
+  console.log(candidate.gender); //d
   
   // getting candidate's age
   candidate.age = document.getElementById('age').value;
-  console.log(candidate.age);
+  console.log(candidate.age); //d
 
   // getting candidate's experience level
   // getting experience input element
@@ -73,9 +94,9 @@ document.querySelector('form').addEventListener('submit', function(e) {
       candidate.experience = ELxp.options[i].text;
     }
   }
-  console.log(candidate.experience);
+  console.log(candidate.experience); //d
   
-  console.log(candidate);
+  console.log(candidate); //d
 
   // clearing inputs
   document.getElementById('fullname').value = '';
