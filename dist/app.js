@@ -134,21 +134,36 @@ document.querySelector('form').addEventListener('submit', function(e) {
 });
 
 // manually removing candidates
-// get del element
-const delBtn = document.querySelector('.fa-window-close');
+// get del element by using event delegation
 document.body.addEventListener('click', function(e) {
 
-  // console.log(e.target); //d
-  // console.log(e.target.parentElement);
-
-  // trigger if clicking on the right element (the icon, which inclue the svg, whose parent is td with id=remove and path (the outer part of the icon), whose parent is svg)
+  // trigger event if clicking on the right element (the icon, which inclue the svg, whose parent is td with id=remove and path (the outer part of the icon), whose parent is svg)
   if(e.target.parentElement.id === 'remove' || e.target.parentElement.tagName === 'svg' )  {
     if(e.target.parentElement.id === 'remove') {
+      // searching memory for this candidate, to delete it from local storage, before deleting the UI row
+      console.log(e.target.parentElement.nextElementSibling.textContent); //d
+      const candidates = JSON.parse(localStorage.getItem('candidates'));
+      console.log(candidates); //d
+      candidates.forEach(function(candidate, index) {
+        if (e.target.parentElement.nextElementSibling.textContent === candidate.fullName) {
+          console.log(candidate.fullName, index); //d
+          candidates.splice(index, 1);
+          console.log(candidates);
+        }
+        // re pushing to memory now that deleted candidate data has been erased
+        localStorage.setItem('candidates', JSON.stringify(candidates));
+
+      })
+      // deleting the row once memory date is removed
       e.target.parentElement.parentElement.remove();
     } else {
+      console.log(e.target.parentElement.parentElement.nextElementSibling.textContent); //d
       e.target.parentElement.parentElement.parentElement.remove();
     }
   }
 
   e.preventDefault();
 })
+
+
+/* FUNCTIONS */
