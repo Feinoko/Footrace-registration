@@ -131,7 +131,7 @@ class UI {
   }
 
   clearCandidates() {
-    
+
   }
 
   static loadCandidates() {
@@ -174,5 +174,5 @@ UI.addCandidate();
 UI.removeCandidate();
 
 // clearing candidates list
-UI.clearCandidates();
+// UI.clearCandidates();
 
