@@ -38,7 +38,7 @@ class UI {
   }
 
   loadCandidates() {
-    
+
   }
 
 }
@@ -46,15 +46,15 @@ class UI {
 // EVENT HANDLERS
 
 // loading all existing candidates from local memory
-  window.onload = function() {
-    // assigning memorized candidates to local var
-    let candidates = JSON.parse(localStorage.getItem('candidates'));
-    // if memory is void, skip, otherwise create a table row for each candidate in memory
-    if (candidates !== null) {
-      candidates.forEach(function(candidate) {
-        const row = document.createElement('tr');
-        row.className = "text-center";
-        row.innerHTML = `
+window.onload = function () {
+  // assigning memorized candidates to local var
+  let candidates = JSON.parse(localStorage.getItem('candidates'));
+  // if memory is void, skip, otherwise create a table row for each candidate in memory
+  if (candidates !== null) {
+    candidates.forEach(function (candidate) {
+      const row = document.createElement('tr');
+      row.className = "text-center";
+      row.innerHTML = `
         <td id="remove"><i class="fas fa-window-close hover:text-red-700 cursor-pointer"></i></td>
         <td>${candidate.fullName}</td>
         <td>${candidate.gender}</td>
@@ -62,21 +62,22 @@ class UI {
         <td>${candidate.experience}</td>
         <td><span class="bg-red-400 text-xs p-0.5">Gents/Long</span></td>
         `;
-        document.getElementById('candidatesTable').appendChild(row);
-      })
-    } else { //d
-      console.log('memory is void');
-    }
+      document.getElementById('candidatesTable').appendChild(row);
+    })
+  } else { //d
+    console.log('memory is void');
   }
+}
 
 // Adding a candidate (submitting the form)
-document.querySelector('form').addEventListener('submit', function(e) {
+document.querySelector('form').addEventListener('submit', function (e) {
+  console.log('submitted form');
   const candidate = new Candidate();
-  
+
   // getting the candidate's full name
   candidate.fullName = document.getElementById('fullname').value;
   console.log(candidate.fullName); //d
-  
+
   // getting the candidate's gender
   const ELgenderSelection = document.getElementById('gender');
   // iterating thru each option to find the one that is selected, then assigning its value to candidate.gender
@@ -86,7 +87,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
     }
   }
   console.log(candidate.gender); //d
-  
+
   // getting candidate's age
   candidate.age = document.getElementById('age').value;
   console.log(candidate.age); //d
@@ -100,7 +101,7 @@ document.querySelector('form').addEventListener('submit', function(e) {
     }
   }
   console.log(candidate.experience); //d
-  
+
   console.log(candidate); //d
 
   // clearing inputs
@@ -135,35 +136,40 @@ document.querySelector('form').addEventListener('submit', function(e) {
 
 // manually removing candidates
 // get del element by using event delegation
-document.body.addEventListener('click', function(e) {
+document.querySelector('table').addEventListener('click', function (e) {
 
-  // trigger event if clicking on the right element (the icon, which inclue the svg, whose parent is td with id=remove and path (the outer part of the icon), whose parent is svg)
-  if(e.target.parentElement.id === 'remove' || e.target.parentElement.tagName === 'svg' )  {
-    if(e.target.parentElement.id === 'remove') {
-      // searching memory for this candidate, to delete it from local storage, before deleting the UI row
-      console.log(e.target.parentElement.nextElementSibling.textContent); //d
-      const candidates = JSON.parse(localStorage.getItem('candidates'));
-      console.log(candidates); //d
-      candidates.forEach(function(candidate, index) {
-        if (e.target.parentElement.nextElementSibling.textContent === candidate.fullName) {
-          console.log(candidate.fullName, index); //d
-          candidates.splice(index, 1);
-          console.log(candidates);
-        }
-        // re pushing to memory now that deleted candidate data has been erased
-        localStorage.setItem('candidates', JSON.stringify(candidates));
-
-      })
-      // deleting the row once memory date is removed
-      e.target.parentElement.parentElement.remove();
+  // trigger event if clicking on the right element ie the icon, which includes the svg, and whose parent is td with id=remove, and path (the outer part of the icon if you click within the square but outside the 'x' shape), whose parent is svg)
+  if (e.target.parentElement.id === 'remove' || e.target.parentElement.tagName === 'svg') {
+    // assigning the proper target (to use a single function for both correct target elements)
+    let targetName;
+    let itemToRemove;
+    if (e.target.parentElement.id === 'remove') {
+      // grab text content (ie full name) of the sibling of the td with id=remove who is the parent of the svg 
+      targetName = e.target.parentElement.nextElementSibling.textContent;
+      itemToRemove = e.target.parentElement.parentElement;
     } else {
-      console.log(e.target.parentElement.parentElement.nextElementSibling.textContent); //d
-      e.target.parentElement.parentElement.parentElement.remove();
+      // grab text content (ie full name) of the sibling of the td with id=remove who is the parent of the parent of path element  (with FA, any element you use to next the icon will be turned into an svg with a child 'path' element inside, to build the icon)
+      targetName = e.target.parentElement.parentElement.nextElementSibling.textContent;
+      itemToRemove = e.target.parentElement.parentElement.parentElement;
     }
+
+    // searching memory for this candidate, to delete it from local storage, before deleting the UI row
+    // console.log(e.target.parentElement.nextElementSibling.textContent); //d
+    const candidates = JSON.parse(localStorage.getItem('candidates'));
+    console.log(candidates); //d
+    candidates.forEach(function (candidate, index) {
+      if (targetName === candidate.fullName) {
+        console.log(candidate.fullName, index); //d
+        candidates.splice(index, 1);
+        console.log(candidates);
+      }
+      // re pushing to memory now that deleted candidate data has been erased
+      localStorage.setItem('candidates', JSON.stringify(candidates));
+    })
+    // deleting the row once memory date is removed
+    itemToRemove.remove();
   }
 
   e.preventDefault();
-})
+});
 
-
-/* FUNCTIONS */
